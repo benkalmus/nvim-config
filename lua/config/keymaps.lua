@@ -4,13 +4,14 @@
 
 local map = vim.keymap
 
-map.set("n", "x", '"_x', { noremap = true })
+map.set({ "n", "v" }, "x", '"_x', { noremap = true })
+map.set({ "n", "v" }, "X", '"_X', { noremap = true })
 
-map.set("n", "D", '"_D', { noremap = true })
-map.set("n", "dd", '"_dd', { noremap = true })
+map.set({ "n", "v" }, "D", '"_D', { noremap = true })
+map.set({ "n", "v" }, "dd", '"_dd', { noremap = true })
 
-map.set("n", "C", '"_C', { noremap = true })
-map.set("n", "c", '"_c', { noremap = true })
+map.set({ "n", "v" }, "C", '"_C', { noremap = true })
+map.set({ "n", "v" }, "c", '"_c', { noremap = true })
 
 -- Changes P behaviour to pasting from the 0 register rather than the last thing yanked
 -- map.set({ "n", "v" }, "P", '"0p', { noremap = true })

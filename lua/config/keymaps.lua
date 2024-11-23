@@ -21,5 +21,10 @@ map.set({ "n", "v" }, "Y", '"*y', { noremap = true })
 -- jumps back to first char on line, also equivalent to hitting ^
 map.set({ "n", "v" }, "-", "_", { noremap = true })
 
+-- comfy horizontal scrolling
+map.set({ "n", "v" }, "zl", "zL", { noremap = true })
+map.set({ "n", "v" }, "zh", "zH", { noremap = true })
+
 -- Add custom command to reload key mapping file
 vim.api.nvim_create_user_command("ReloadKeymaps", "luafile ~/.config/nvim/lua/config/keymaps.lua", {})
+vim.api.nvim_create_user_command("ReloadOptions", "luafile ~/.config/nvim/lua/config/options.lua", {})

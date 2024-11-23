@@ -1,5 +1,6 @@
 return {
-    require("telescope").setup({
+    "nvim-telescope/telescope.nvim",
+    opts = {
         defaults = {
             prompt_prefix = "> ",
             selection_caret = "-> ",
@@ -22,5 +23,5 @@ return {
                 hidden = true,
             },
         },
-    }),
+    },
 }

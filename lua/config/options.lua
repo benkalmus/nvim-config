@@ -14,3 +14,5 @@ vim.g.autoformat = false
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
+
+vim.opt.conceallevel = 1 -- Hide * markup for bold and italic, but not markers with substitutions

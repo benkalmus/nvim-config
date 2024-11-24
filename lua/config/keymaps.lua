@@ -5,10 +5,10 @@
 local map = vim.keymap
 
 map.set({ "n", "v" }, "x", '"_x', { noremap = true })
-map.set({ "n", "v" }, "X", '"_X', { noremap = true })
+map.set({ "n", "v" }, "X", "dd", { noremap = true })
 
 map.set({ "n", "v" }, "D", '"_D', { noremap = true })
-map.set({ "n", "v" }, "dd", '"_dd', { noremap = true })
+-- map.set({ "n", "v" }, "dd", '"_dd', { noremap = true })
 
 map.set({ "n", "v" }, "C", '"_C', { noremap = true })
 map.set({ "n", "v" }, "c", '"_c', { noremap = true })

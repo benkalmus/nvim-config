@@ -11,3 +11,6 @@ opt.smartindent = true
 
 -- disable auto format on save
 vim.g.autoformat = false
+
+-- Set completeopt to have a better completion experience
+vim.o.completeopt = 'menuone,noselect'

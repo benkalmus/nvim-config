@@ -10,4 +10,4 @@ opt.timeoutlen = 150 -- vim.g.vscode and 1000 or 300 --  Lower than default (100
 opt.smartindent = true
 
 -- disable auto format on save
--- vim.g.autoformat = false
+vim.g.autoformat = false

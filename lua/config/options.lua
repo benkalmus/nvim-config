@@ -10,9 +10,12 @@ opt.timeoutlen = 150 -- vim.g.vscode and 1000 or 300 --  Lower than default (100
 opt.smartindent = true
 
 -- disable auto format on save
-vim.g.autoformat = false
+vim.g.autoformat = true
 
 -- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
+vim.o.completeopt = "menuone,noselect"
 
 vim.opt.conceallevel = 1 -- Hide * markup for bold and italic, but not markers with substitutions
+
+-- disable animations like scrolling (prefer snappiness)
+vim.g.snacks_animate = false

@@ -15,6 +15,7 @@ map.set({ "n", "v" }, "c", '"_c', { noremap = true })
 
 -- Changes P behaviour to pasting from the 0 register rather than the last thing yanked
 -- map.set({ "n", "v" }, "P", '"0p', { noremap = true })
+map.set({ "n", "v" }, "<c-p>", '"0P', { noremap = true })
 
 -- copy to system clipboard
 map.set({ "n", "v" }, "Y", '"*y', { noremap = true })

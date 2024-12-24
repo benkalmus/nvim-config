@@ -19,7 +19,7 @@ map.set({ "n", "v" }, "c", '"_c', { noremap = true })
 -- map.set({ "n", "v" }, "P", '"0p', { noremap = true })
 map.set({ "n", "v" }, "<C-p>", '"0P', { noremap = true })
 -- copy to system clipboard
-map.set({ "n", "v" }, "Y", '"*y', { noremap = true })
+map.set({ "n", "v" }, "Y", '"+y', { noremap = true })
 
 -- jumps back to first char on line, also equivalent to hitting ^
 map.set({ "n", "v" }, "-", "_", { noremap = true })

@@ -31,3 +31,7 @@ map.set({ "n", "v" }, "zh", "zH", { noremap = true })
 -- Add custom command to reload key mapping file
 vim.api.nvim_create_user_command("ReloadKeymaps", "luafile ~/.config/nvim/lua/config/keymaps.lua", {})
 vim.api.nvim_create_user_command("ReloadOptions", "luafile ~/.config/nvim/lua/config/options.lua", {})
+
+-- files
+vim.api.nvim_set_keymap("n", "QQ", ":qa<enter>", { noremap = false })
+vim.api.nvim_set_keymap("n", "WW", ":wa<enter>", { noremap = false })

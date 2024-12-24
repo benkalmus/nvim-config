@@ -1,5 +1,14 @@
 # My Neovim config
 
+Either clone this repo to `~/.config/nvim` or
+Create a symlink:
+
+```sh
+REPO_DIR=$( dirname $(pwd) )
+mkdir -p ~/.config/nvim
+ln -s ${REPO_DIR}/ ~/.config/nvim
+```
+
 ## SUPPORT:
 
 LazyVim git repo [LazyVim](https://github.com/LazyVim/LazyVim).

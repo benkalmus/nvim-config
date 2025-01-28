@@ -29,6 +29,6 @@ return {
         },
         templates = {
             subdir = "templates",
-        }
+        },
     },
 }

@@ -1,4 +1,14 @@
 return {
     "ibhagwan/fzf-lua",
-    enabled = false,
+    opts = {
+        winopts = {
+            height = 0.9,
+            width = 0.9,
+
+            preview = {
+                layout = "vertical",
+                vertical = "down:70%",
+            },
+        },
+    },
 }

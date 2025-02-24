@@ -36,6 +36,7 @@ vim.api.nvim_create_user_command("ReloadOptions", "luafile ~/.config/nvim/lua/co
 vim.api.nvim_set_keymap("n", "QQ", ":qa<enter>", { noremap = false })
 vim.api.nvim_set_keymap("n", "WW", ":wa<enter>", { noremap = false })
 
+-- TODO: no longer needed ( using fzf )
 -- Define a Lua function for live_grep with a glob pattern
 function TelescopeLiveGrepGlob(glob_pattern)
     -- Call the Telescope live_grep with the glob_pattern
@@ -43,7 +44,6 @@ function TelescopeLiveGrepGlob(glob_pattern)
         glob_pattern = glob_pattern,
     })
 end
-
 -- Create a keybinding for this function
 map.set(
     { "n", "v" }, -- Normal mode

@@ -3,7 +3,7 @@ return {
     -- custom colorschemes
     { "shaunsingh/nord.nvim" },
     -- schemes: kanagawa-wave [ -wave, -lotus, -dragon ]
-    { "rebelot/kanagawa.nvim", opts = {
+    { "EdenEast/nightfox.nvim", opts = {
         transparent = true,
     } },
 
@@ -11,7 +11,7 @@ return {
     {
         "LazyVim/LazyVim",
         opts = {
-            colorscheme = "kanagawa",
+            colorscheme = "duskfox",
         },
     },
 }

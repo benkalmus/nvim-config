@@ -17,6 +17,10 @@ return {
         "nvim-telescope/telescope.nvim",
     },
     opts = {
+        ui = {
+            -- enable = false,
+            enable = true,
+        },
         workspaces = {
             {
                 name = "Notes",

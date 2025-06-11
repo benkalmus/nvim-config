@@ -13,6 +13,7 @@ return {
             })
         end,
     },
+
     -- set colorscheme:
     {
         "LazyVim/LazyVim",

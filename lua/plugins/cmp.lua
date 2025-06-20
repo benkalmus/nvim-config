@@ -1,10 +1,11 @@
-local cmp = require("cmp")
-return {
-    "hrsh7th/nvim-cmp",
-    opts = {
-        completion = {
-            completeopt = "menu,menuone,noinsert,popup",
-        },
-        preselect = cmp.PreselectMode.None,
-    },
-}
+return {}
+-- local cmp = require("cmp")
+-- return {
+--     "hrsh7th/nvim-cmp",
+--     opts = {
+--         completion = {
+--             completeopt = "menu,menuone,noinsert,popup",
+--         },
+--         preselect = cmp.PreselectMode.None,
+--     },
+-- }

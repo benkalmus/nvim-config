@@ -1,6 +1,6 @@
 return {
 	"3rd/image.nvim",
-	enabled = true,
+	enabled = false,
 	event = "VeryLazy",
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter",

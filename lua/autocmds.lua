@@ -1,28 +1,28 @@
 require("nvchad.autocmds")
 
 -- Remember and restore terminal mode state per buffer
-vim.api.nvim_create_autocmd("WinLeave", {
-	callback = function()
-		if vim.bo.buftype == "terminal" then
-			vim.b.term_insert_mode = vim.fn.mode() == "t"
-		end
-	end,
-})
-
-vim.api.nvim_create_autocmd("WinEnter", {
-	callback = function()
-		if vim.bo.buftype == "terminal" and vim.api.nvim_win_get_config(0).relative == "" then
-			-- Default to terminal mode on first visit (vim.b.term_insert_mode is nil)
-			if vim.b.term_insert_mode ~= false then
-				vim.cmd("startinsert")
-			end
-		end
-	end,
-})
+-- vim.api.nvim_create_autocmd("WinLeave", {
+-- 	callback = function()
+-- 		if vim.bo.buftype == "terminal" then
+-- 			vim.b.term_insert_mode = vim.fn.mode() == "t"
+-- 		end
+-- 	end,
+-- })
+--
+-- vim.api.nvim_create_autocmd("WinEnter", {
+-- 	callback = function()
+-- 		if vim.bo.buftype == "terminal" and vim.api.nvim_win_get_config(0).relative == "" then
+-- 			-- Default to terminal mode on first visit (vim.b.term_insert_mode is nil)
+-- 			if vim.b.term_insert_mode ~= false then
+-- 				vim.cmd("startinsert")
+-- 			end
+-- 		end
+-- 	end,
+-- })
 
 -- Override jarring yellow search highlights with muted blue
 local function set_search_highlights()
-	vim.api.nvim_set_hl(0, "Search",    { bg = "#2d4a6e", fg = "#c8ccd4" })
+	vim.api.nvim_set_hl(0, "Search", { bg = "#2d4a6e", fg = "#c8ccd4" })
 	vim.api.nvim_set_hl(0, "IncSearch", { bg = "#61afef", fg = "#1e222a" })
 	vim.api.nvim_set_hl(0, "CurSearch", { bg = "#61afef", fg = "#1e222a" })
 end

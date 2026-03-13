@@ -31,8 +31,8 @@ return {
 		},
 
 		-- Diff management (capital A and D to avoid opencode conflicts)
-		{ "<leader>aA", "<cmd>ClaudeCodeDiffAccept<cr>", desc = "Accept Claude Diff" },
-		{ "<leader>aD", "<cmd>ClaudeCodeDiffDeny<cr>", desc = "Deny Claude Diff" },
+		-- { "<leader>aA", "<cmd>ClaudeCodeDiffAccept<cr>", desc = "Accept Claude Diff" },
+		-- { "<leader>aD", "<cmd>ClaudeCodeDiffDeny<cr>", desc = "Deny Claude Diff" },
 	},
 	opts = {
 		-- Server Configuration

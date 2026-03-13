@@ -382,3 +382,13 @@ map.set("n", "<leader>fc", function()
 	vim.fn.setreg("+", path)
 	vim.notify("Copied: " .. path, vim.log.levels.INFO)
 end, { desc = "Copy relative file path" })
+
+-- Format with conform.nvim
+-- map.set({ "n", "v" }, "<leader>cf", function()
+-- 	require("conform").format({ async = true })
+-- end, { desc = "Format buffer" })
+--
+-- Format with conform.nvim
+map.set({ "n", "v" }, "<leader>cf", function()
+	vim.lsp.buf.format({ async = true })
+end, { desc = "Format buffer" })

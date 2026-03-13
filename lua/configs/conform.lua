@@ -2,6 +2,9 @@ local options = {
   formatters_by_ft = {
     lua = { "stylua" },
     python = { "ruff_format" },
+    yaml = { "prettier" },
+    yml = { "prettier" },
+    ["yaml.docker-compose"] = { "prettier" },
     -- css = { "prettier" },
     -- html = { "prettier" },
   },

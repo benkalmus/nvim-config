@@ -6,8 +6,6 @@ local del = function(mode, keymap)
 	pcall(vim.keymap.del, mode, keymap)
 end
 
-map.set("n", "<C-i>", "<C-i>")
-map.set("n", "<C-o>", "<C-o>")
 -- <C-x> - Exit terminal mode (alternative to <C-\><C-n>)
 
 -- These are defined in NvChad's default mappings. Want me to add some additional convenient terminal keybindings, like:
@@ -27,6 +25,9 @@ del("t", "<A-i>") -- terminal mode
 del("t", "<A-h>")
 del("t", "<A-v>")
 del("n", "<leader>b") -- disable NvChad's new buffer keybind
+-- Disable NvChad's Tab/S-Tab buffer switching (conflicts with Ctrl+I/O jump history)
+del("n", "<Tab>")
+del("n", "<S-Tab>")
 
 -- NvChad's <leader>h (horizontal terminal) is overridden by Harpoon's quick menu in plugins/harpoon.lua
 -- Terminal toggle with Ctrl+/

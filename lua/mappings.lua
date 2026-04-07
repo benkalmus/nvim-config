@@ -30,7 +30,7 @@ del("n", "<leader>b") -- disable NvChad's new buffer keybind
 
 -- NvChad's <leader>h (horizontal terminal) is overridden by Harpoon's quick menu in plugins/harpoon.lua
 -- Terminal toggle with Ctrl+/
-map.set({ "n", "t" }, "<C-/>", function()
+map.set({ "n", "t" }, "<leader>/", function()
 	require("nvchad.term").toggle({ pos = "sp", id = "htoggleTerm" })
 end, { desc = "Toggle horizontal terminal" })
 

@@ -44,7 +44,7 @@ return {
 			dynamic_root = false, -- false = use cwd, true = use parent dir of file
 			sync_scroll = true, -- Sync browser scroll with nvim scroll
 			picker = "fzf", -- 'telescope', 'fzf', 'mini.pick', 'snacks', or vim.ui.select
-			address = "127.0.0.1", -- Server bind address
+			address = "0.0.0.0", -- Server bind address
 		})
 	end,
 }

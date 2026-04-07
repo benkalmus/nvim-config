@@ -31,7 +31,10 @@ del("n", "<S-Tab>")
 
 -- NvChad's <leader>h (horizontal terminal) is overridden by Harpoon's quick menu in plugins/harpoon.lua
 -- Terminal toggle with Ctrl+/
-map.set({ "n", "t" }, "<leader>/", function()
+map.set({ "n" }, "<leader>/", function()
+	require("nvchad.term").toggle({ pos = "sp", id = "htoggleTerm" })
+end, { desc = "Toggle horizontal terminal" })
+map.set({ "n", "t" }, "<C-/>", function()
 	require("nvchad.term").toggle({ pos = "sp", id = "htoggleTerm" })
 end, { desc = "Toggle horizontal terminal" })
 

@@ -64,20 +64,20 @@ return {
 		vim.o.autoread = true -- Required for `opts.events.reload`
 
 		-- Recommended/example keymaps
-		vim.keymap.set({ "n", "x" }, "<leader>aa", function()
+		vim.keymap.set({ "n", "x", "v" }, "<leader>aa", function()
 			require("opencode").ask("@this: ", { submit = true })
 		end, { desc = "Ask opencode…" })
-		vim.keymap.set({ "n", "x" }, "<leader>as", function()
+		vim.keymap.set({ "n", "x", "v" }, "<leader>as", function()
 			require("opencode").select()
 		end, { desc = "Execute opencode action…" })
-		vim.keymap.set({ "n", "t" }, "<leader>,", function()
+		vim.keymap.set({ "n", "t", "v" }, "<leader>,", function()
 			require("opencode").toggle()
 		end, { desc = "Toggle opencode" })
-		vim.keymap.set({ "n", "t" }, "<C-,>", function()
+		vim.keymap.set({ "n", "t", "v" }, "<C-,>", function()
 			require("opencode").toggle()
 		end, { desc = "Toggle opencode" })
 
-		vim.keymap.set({ "n", "x" }, "<leader>ar", function()
+		vim.keymap.set({ "n", "x", "v" }, "<leader>ar", function()
 			return require("opencode").operator("@this ")
 		end, { desc = "Add range to opencode", expr = true })
 		vim.keymap.set("n", "<leader>al", function()

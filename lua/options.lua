@@ -9,6 +9,8 @@ local opt = vim.opt
 opt.relativenumber = true
 
 opt.wrap = false
+opt.modeline = false
+opt.modelines = 0
 
 -- Show search count (e.g., "[1/5]")
 opt.shortmess:remove("S")

@@ -13,6 +13,7 @@ return {
 			"<cmd>MarkdownPreviewToggle<cr>",
 			desc = "Markdown Preview",
 		},
+
 	},
 	-- `init` runs before the plugin is loaded, `config` runs asfter.
 	init = function()
@@ -20,6 +21,8 @@ return {
 		vim.g.mkdp_port = "8123"
 		vim.g.mkdp_theme = "dark"
 		vim.g.mkdp_refresh_slow = 1
+		vim.g.mkdp_open_to_the_world = 1
+		vim.g.mkdp_open_ip = "0.0.0.0"
 
 		-- vim.cmd([[do FileType]])
 	end,

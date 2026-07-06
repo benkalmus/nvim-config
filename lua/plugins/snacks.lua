@@ -9,6 +9,10 @@ return {
 		{ "<leader>gd", false },
 	},
 	opts = {
+		image = {
+			enabled = true,
+			inline = true,
+		},
 		input = { enabled = true },
 		picker = { enabled = true },
 		explorer = { enabled = true },

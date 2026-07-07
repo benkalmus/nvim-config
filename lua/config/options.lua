@@ -46,17 +46,6 @@ opt.foldexpr = "v:lua.FoldExpr()"
 opt.foldlevel = 99
 opt.foldlevelstart = 99
 opt.foldenable = true
-
--- Use pbcopy/pbpaste directly with caching to avoid blocking subprocess calls
--- on every register operation (unnamedplus without this spawns pbpaste repeatedly).
-vim.g.clipboard = {
-	name = "pbcopy",
-	copy = { ["+"] = "pbcopy", ["*"] = "pbcopy" },
-	paste = { ["+"] = "pbpaste", ["*"] = "pbpaste" },
-	cache_enabled = true,
-}
-opt.clipboard = "unnamedplus"
-
 opt.autoread = true
 opt.jumpoptions:append("clean")
 opt.sessionoptions = "buffers,curdir,tabpages,winsize,help,globals,skiprtp,folds"

@@ -41,7 +41,7 @@ map({ "n", "v" }, "D", '"_D', { noremap = true })
 map({ "n", "v" }, "C", '"_C', { noremap = true })
 map({ "n", "v" }, "c", '"_c', { noremap = true })
 map({ "n", "v" }, "<C-p>", '"0P', { noremap = true })
-map({ "n", "v" }, "Y", '"+y', { noremap = true })
+
 map({ "n", "v" }, "-", "_", { noremap = true })
 map({ "n", "v" }, "zl", "zL", { noremap = true })
 map({ "n", "v" }, "zh", "zH", { noremap = true })

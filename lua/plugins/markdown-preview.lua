@@ -13,7 +13,6 @@ return {
 			"<cmd>MarkdownPreviewToggle<cr>",
 			desc = "Markdown Preview",
 		},
-
 	},
 	-- `init` runs before the plugin is loaded, `config` runs asfter.
 	init = function()

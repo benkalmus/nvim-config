@@ -22,16 +22,16 @@ opt.expandtab = true
 -- Use wl-clipboard on Wayland (XWayland). xsel/xclip hang when clipboard
 -- owner is unresponsive; wl-copy/wl-paste don't block.
 vim.g.clipboard = {
-  name = "wl-clipboard",
-  copy = {
-    ["+"] = "wl-copy",
-    ["*"] = "wl-copy",
-  },
-  paste = {
-    ["+"] = "wl-paste",
-    ["*"] = "wl-paste",
-  },
-  cache_enabled = true,
+	name = "wl-clipboard",
+	copy = {
+		["+"] = "wl-copy",
+		["*"] = "wl-copy",
+	},
+	paste = {
+		["+"] = "wl-paste",
+		["*"] = "wl-paste",
+	},
+	cache_enabled = true,
 }
 
 -- Cache large-file check per buffer to avoid fs_stat syscall on every fold evaluation.

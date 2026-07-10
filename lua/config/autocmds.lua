@@ -1,5 +1,9 @@
 -- Autocmds are automatically loaded by LazyVim.
 
+-- Disable unnamedplus clipboard sync. xsel -o -b hangs indefinitely when
+-- the X clipboard owner is unresponsive (e.g. crashed app), freezing nvim.
+vim.opt.clipboard = ""
+
 -- checktime on FocusGained only. BufEnter causes a disk check on every buffer
 -- switch which adds I/O on large repos with many open buffers.
 vim.api.nvim_create_autocmd("FocusGained", {

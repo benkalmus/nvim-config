@@ -15,37 +15,37 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	spec = {
-		{ "LazyVim/LazyVim", import = "lazyvim.plugins" },
-		{ import = "lazyvim.plugins.extras.coding.nvim-cmp" },
-		{ import = "lazyvim.plugins.extras.coding.luasnip" },
-		{ import = "lazyvim.plugins.extras.editor.snacks_picker" },
-		{ import = "lazyvim.plugins.extras.editor.snacks_explorer" },
-		{ import = "lazyvim.plugins.extras.dap.core" },
-		{ import = "lazyvim.plugins.extras.test.core" },
-		-- nvim-lint is now the default LazyVim linter; no extra needed
-		{ import = "lazyvim.plugins.extras.lang.go" },
-		{ import = "lazyvim.plugins.extras.lang.python" },
-		{ import = "plugins" },
-	},
-	defaults = {
-		lazy = false,
-		version = false,
-	},
-	install = { colorscheme = { "tokyonight", "habamax" } },
-	checker = {
-		enabled = true,
-		notify = false,
-	},
-	performance = {
-		rtp = {
-			disabled_plugins = {
-				"gzip",
-				"tarPlugin",
-				"tohtml",
-				"tutor",
-				"zipPlugin",
-			},
-		},
-	},
+  spec = {
+    { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+    { import = "lazyvim.plugins.extras.coding.nvim-cmp" },
+    { import = "lazyvim.plugins.extras.coding.luasnip" },
+    { import = "lazyvim.plugins.extras.editor.snacks_picker" },
+    { import = "lazyvim.plugins.extras.editor.snacks_explorer" },
+    { import = "lazyvim.plugins.extras.dap.core" },
+    { import = "lazyvim.plugins.extras.test.core" },
+    -- nvim-lint is now the default LazyVim linter; no extra needed
+    -- { import = "lazyvim.plugins.extras.lang.go" }, -- removed: go not on this machine
+    { import = "lazyvim.plugins.extras.lang.python" },
+    { import = "plugins" },
+  },
+  defaults = {
+    lazy = false,
+    version = false,
+  },
+  install = { colorscheme = { "tokyonight", "habamax" } },
+  checker = {
+    enabled = true,
+    notify = false,
+  },
+  performance = {
+    rtp = {
+      disabled_plugins = {
+        "gzip",
+        "tarPlugin",
+        "tohtml",
+        "tutor",
+        "zipPlugin",
+      },
+    },
+  },
 })

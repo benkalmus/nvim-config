@@ -11,7 +11,7 @@ return {
 	opts = {
 		image = {
 			enabled = true,
-			inline = true,
+			inline = false,
 		},
 		input = { enabled = true },
 		picker = { enabled = true },

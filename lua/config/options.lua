@@ -19,20 +19,9 @@ opt.shiftwidth = 4
 opt.softtabstop = 4
 opt.expandtab = true
 
--- Use wl-clipboard on Wayland (XWayland). xsel/xclip hang when clipboard
--- owner is unresponsive; wl-copy/wl-paste don't block.
-vim.g.clipboard = {
-	name = "wl-clipboard",
-	copy = {
-		["+"] = "wl-copy",
-		["*"] = "wl-copy",
-	},
-	paste = {
-		["+"] = "wl-paste",
-		["*"] = "wl-paste",
-	},
-	cache_enabled = true,
-}
+-- OSC 52 clipboard: copies through terminal ANSI escape sequence.
+-- Works over SSH, tmux, any terminal that supports it (Windows Terminal, WezTerm, Kitty, iTerm2).
+vim.g.clipboard = "osc52"
 
 -- Cache large-file check per buffer to avoid fs_stat syscall on every fold evaluation.
 local _fold_large_file_cache = {}

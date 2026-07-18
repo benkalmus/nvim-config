@@ -39,9 +39,7 @@ return {
 			border = "thin", -- 'thin' or 'thick'
 		},
 		-- Inline code
-		inline_code = {
-			enabled = true,
-		},
+		inline_code = true,
 		-- Dashes/horizontal rules
 		dash = {
 			enabled = true,

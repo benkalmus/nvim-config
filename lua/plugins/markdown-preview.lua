@@ -1,30 +1,28 @@
-if true then
-    return {}
-end
-
 return {
-    "iamcco/markdown-preview.nvim",
-    ft = "markdown",
-    build = function()
-        vim.fn["mkdp#util#install"]()
-    end,
-    init = function()
-        local g = vim.g
-        g.mkdp_auto_start = 0
-        g.mkdp_auto_close = 1
-        g.mkdp_refresh_slow = 0
-        g.mkdp_command_for_global = 0
-        g.mkdp_open_to_the_world = 0
-        g.mkdp_open_ip = ""
-        g.mkdp_browser = "firefox"
-        g.mkdp_echo_preview_url = 0
-        g.mkdp_browserfunc = ""
-        g.mkdp_theme = "dark"
-        g.mkdp_filetypes = { "markdown" }
-        g.mkdp_page_title = "${name}.md"
-        g.mkdp_preview_options = {
-            disable_sync_scroll = 0,
-            disable_filename = 1,
-        }
-    end,
+	"iamcco/markdown-preview.nvim",
+	cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+	event = "VeryLazy",
+	build = function()
+		require("lazy").load({ plugins = { "markdown-preview.nvim" } })
+		vim.fn["mkdp#util#install"]()
+	end,
+	keys = {
+		{
+			"<leader>mm",
+			ft = "markdown",
+			"<cmd>MarkdownPreviewToggle<cr>",
+			desc = "Markdown Preview",
+		},
+	},
+	-- `init` runs before the plugin is loaded, `config` runs asfter.
+	init = function()
+		vim.g.mkdp_auto_close = 0
+		vim.g.mkdp_port = "8123"
+		vim.g.mkdp_theme = "dark"
+		vim.g.mkdp_refresh_slow = 1
+		vim.g.mkdp_open_to_the_world = 1
+		vim.g.mkdp_open_ip = "0.0.0.0"
+
+		-- vim.cmd([[do FileType]])
+	end,
 }

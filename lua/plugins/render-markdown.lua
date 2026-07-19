@@ -38,8 +38,6 @@ return {
 			right_pad = 0,
 			border = "thin", -- 'thin' or 'thick'
 		},
-		-- Inline code
-		inline_code = true,
 		-- Dashes/horizontal rules
 		dash = {
 			enabled = true,

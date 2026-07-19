@@ -16,11 +16,11 @@ return {
 		}
 
 		-- Custom linter config
-		lint.linters["markdownlint-cli2"].args = {
-			"--config",
-			HOME .. "/.markdownlint-cli2.yaml",
-			"--",
-		}
+		-- lint.linters["markdownlint-cli2"].args = {
+		-- 	"--config",
+		-- 	HOME .. "/.markdownlint-cli2.yaml",
+		-- 	"--",
+		-- }
 
 		-- Create autocmd to trigger linting
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })

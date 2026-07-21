@@ -54,7 +54,8 @@ return {
 		local basename = vim.fs.basename(cwd)
 		_99.setup({
 
-			provider = _99.Providers.ClaudeCodeProvider,
+			provider = _99.Providers.OpenCodeProvider,
+			model = "opencode/deepseek-v4-flash-free",
 			completion = { source = "cmp" },
 			md_files = { "CLAUDE.md" },
 			tmp_dir = "./tmp/99/",

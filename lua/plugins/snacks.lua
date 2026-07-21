@@ -9,6 +9,15 @@ return {
 		{ "<leader>gd", false },
 	},
 	opts = {
+		win = {
+			backdrop = false, -- disable all backdrops
+		},
+		styles = {
+			sidebar = {
+				backdrop = false, -- specifically for explorer sidebar
+			},
+		},
+
 		image = {
 			enabled = true,
 			inline = false,

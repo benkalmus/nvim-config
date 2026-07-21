@@ -7,7 +7,8 @@ end
 
 map("n", "<C-i>", "<C-i>")
 map("n", "<C-o>", "<C-o>")
-map({ "n", "i", "v" }, "<C-s>", "<cmd>w<cr>", { desc = "Save File" })
+map({ "n", "v" }, "<C-s>", "<cmd>w<cr>", { desc = "Save File" })
+map("i", "<C-s>", "<Esc>:w<cr>", { desc = "Save File" })
 
 -- Snacks-first UI replacements for old NvChad bindings.
 map("n", "<leader>e", function()

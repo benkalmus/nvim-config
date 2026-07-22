@@ -11,9 +11,9 @@ return {
 		-- mason-lspconfig) already runs golangci-lint and provides inline
 		-- diagnostics. Running both collides on golangci-lint's exclusive
 		-- module lock and produces "parallel golangci-lint is running".
-		lint.linters_by_ft = {
-			markdown = { "markdownlint-cli2" },
-		}
+		-- lint.linters_by_ft = {
+		-- 	markdown = { "markdownlint-cli2" },
+		-- }
 
 		-- Custom linter config
 		-- lint.linters["markdownlint-cli2"].args = {

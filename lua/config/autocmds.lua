@@ -1,5 +1,15 @@
 -- Autocmds are automatically loaded by LazyVim.
 
+-- manually enable KKP disambiguate mode to fix esc being interpreted as alt key.
+-- auto-negotiation fails through tmux so we send the escape sequence directly.
+vim.api.nvim_create_autocmd("UIEnter", {
+	once = true,
+	callback = function()
+		io.stdout:write("\x1b[>1u")
+		io.stdout:flush()
+	end,
+})
+
 -- checktime on FocusGained only. BufEnter causes a disk check on every buffer
 -- switch which adds I/O on large repos with many open buffers.
 vim.api.nvim_create_autocmd("FocusGained", {

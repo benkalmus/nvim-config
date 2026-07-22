@@ -10,6 +10,8 @@ local opt = vim.opt
 opt.modeline = false
 opt.relativenumber = true
 opt.wrap = false
+-- Timeout (ms) waiting for mapped key-sequence to complete (e.g. escape sequences in terminal). This fixes esc being interpreted as alt key. An annoyance when moving lines.
+opt.ttimeoutlen = 10
 
 -- Show search count, e.g. "[1/5]".
 opt.shortmess:remove("S")

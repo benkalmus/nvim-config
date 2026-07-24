@@ -223,6 +223,9 @@ map({ "n", "v", "o", "i" }, "<C-c>", smart_cancel, {
 	desc = "Smart Cancel",
 })
 
+-- Lsp restart handy keybind
+map("n", "<leader>cL", "<cmd>lsp restart<CR>", { desc = "Restart LSP" })
+
 vim.api.nvim_create_user_command("ReloadKeymaps", "luafile ~/.config/nvim/lua/config/keymaps.lua", {})
 vim.api.nvim_create_user_command("ReloadOptions", "luafile ~/.config/nvim/lua/config/options.lua", {})
 

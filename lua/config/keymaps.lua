@@ -4,6 +4,7 @@ local map = vim.keymap.set
 local del = function(mode, lhs)
 	pcall(vim.keymap.del, mode, lhs)
 end
+local textobjects = require("config.textobjects")
 
 map("n", "<C-i>", "<C-i>")
 map("n", "<C-o>", "<C-o>")
@@ -226,8 +227,25 @@ map({ "n", "v", "o", "i" }, "<C-c>", smart_cancel, {
 -- Lsp restart handy keybind
 map("n", "<leader>cL", "<cmd>lsp restart<CR>", { desc = "Restart LSP" })
 
+-- Bracket-aware text objects: ip/ap detect nearest enclosing pair ({}, (), [], <>).
+map({ "x", "o" }, "ip", function()
+	return textobjects.bracket_text_object(true)
+end, { expr = true, desc = "Smart inner bracket pair" })
+map({ "x", "o" }, "ap", function()
+	return textobjects.bracket_text_object(false)
+end, { expr = true, desc = "Smart a bracket pair" })
+
 vim.api.nvim_create_user_command("ReloadKeymaps", "luafile ~/.config/nvim/lua/config/keymaps.lua", {})
 vim.api.nvim_create_user_command("ReloadOptions", "luafile ~/.config/nvim/lua/config/options.lua", {})
+
+-- Tab navigation by index: g1-g9, g^ first, g$ last.
+for i = 1, 9 do
+  map("n", "g" .. i, function()
+    vim.cmd.tabnext(i)
+  end, { desc = "Go to Tab " .. i })
+end
+map("n", "g^", "<cmd>tabfirst<cr>", { desc = "Go to First Tab" })
+map("n", "g$", "<cmd>tablast<cr>", { desc = "Go to Last Tab" })
 
 -- Remove LazyVim defaults that conflict with local habits.
 del("n", "<leader>l")

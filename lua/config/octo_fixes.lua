@@ -8,7 +8,7 @@
 -- named functions and re-apply the PATCH blocks; delete a patch once its fix
 -- ships upstream.
 --
--- Call require("configs.octo_fixes").install() from octo's plugin config.
+-- Call require("config.octo_fixes").install() from octo's plugin config.
 
 local M = {}
 

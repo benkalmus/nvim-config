@@ -134,7 +134,7 @@ return {
 			-- Local patches for octo bugs (notification picker crash on CI
 			-- notifications, "Invalid buffer id" on picker-preview scroll). Kept in
 			-- their own file to keep this config readable; see it for details.
-			require("configs.octo_fixes").install()
+			require("config.octo_fixes").install()
 
 			return opts
 		end,

@@ -7,65 +7,77 @@ return {
 	-- (gdh/gdH/gdm/gdM/gdb/gdd/gdf in lua/config/keymaps.lua).
 	keys = {
 		{ "<leader>gd", false },
+		{ "<leader>ps", function() Snacks.profiler.scratch() end, desc = "Profiler Scratch Buffer" },
 	},
-	opts = {
-		win = {
-			backdrop = false, -- disable all backdrops
-		},
-		styles = {
-			sidebar = {
-				backdrop = false, -- specifically for explorer sidebar
-			},
-		},
-
-		image = {
-			enabled = true,
-			inline = false,
-		},
-		input = { enabled = true },
-		picker = { enabled = true },
-		explorer = { enabled = true },
-		terminal = {
-			enabled = true,
-			win = {
-				wo = {
-					-- Prevent treesitter foldexpr from running on terminal buffers.
-					-- With foldmethod=expr globally, nvim evaluates folds on every line
-					-- of terminal output, which is slow and serves no purpose in a terminal.
-					foldmethod = "manual",
-					foldexpr = "0",
+	opts = function()
+		Snacks.toggle.profiler():map("<leader>pp")
+		Snacks.toggle.profiler_highlights():map("<leader>ph")
+		return {
+			profiler = {
+				enabled = true,
+				filter_fn = {
+					default = true,
+					["^gitsigns%."] = false,
+				},
+				filter_mod = {
+					default = true,
+					["^gitsigns%."] = false,
 				},
 			},
-		},
-		notifier = {
-			enabled = true,
-			timeout = 3000,
-			refresh = 200,
-		},
-		scroll = { enabled = false },
-		indent = { enabled = false },
-		dashboard = { enabled = false },
-		words = { enabled = true },
-		bigfile = {
-			line_length = 100000,
-			setup = function(ctx)
-				if vim.fn.exists(":NoMatchParen") ~= 0 then
-					vim.cmd("NoMatchParen")
-				end
-				Snacks.util.wo(0, { foldmethod = "manual", statuscolumn = "", conceallevel = 0 })
-				vim.b.completion = false
-				vim.b.minianimate_disable = true
-				vim.b.minihipatterns_disable = true
-				vim.schedule(function()
-					if vim.api.nvim_buf_is_valid(ctx.buf) then
-						vim.bo[ctx.buf].syntax = ctx.ft
+			win = {
+				backdrop = false,
+			},
+			styles = {
+				sidebar = {
+					backdrop = false,
+				},
+			},
+			image = {
+				enabled = true,
+				inline = false,
+			},
+			input = { enabled = true },
+			picker = { enabled = true },
+			explorer = { enabled = true },
+			terminal = {
+				enabled = true,
+				win = {
+					wo = {
+						foldmethod = "manual",
+						foldexpr = "0",
+					},
+				},
+			},
+			notifier = {
+				enabled = true,
+				timeout = 3000,
+				refresh = 200,
+			},
+			scroll = { enabled = false },
+			indent = { enabled = false },
+			dashboard = { enabled = false },
+			words = { enabled = true },
+			bigfile = {
+				line_length = 100000,
+				setup = function(ctx)
+					if vim.fn.exists(":NoMatchParen") ~= 0 then
+						vim.cmd("NoMatchParen")
 					end
-				end)
-				for _, client in pairs(vim.lsp.get_clients({ bufnr = ctx.buf })) do
-					vim.lsp.buf_detach_client(ctx.buf, client.id)
-				end
-				pcall(vim.treesitter.stop, ctx.buf)
-			end,
-		},
-	},
+					Snacks.util.wo(0, { foldmethod = "manual", statuscolumn = "", conceallevel = 0 })
+					vim.b.completion = false
+					vim.b.minianimate_disable = true
+					vim.b.minihipatterns_disable = true
+					vim.schedule(function()
+						if vim.api.nvim_buf_is_valid(ctx.buf) then
+							vim.bo[ctx.buf].syntax = ctx.ft
+						end
+					end)
+					for _, client in pairs(vim.lsp.get_clients({ bufnr = ctx.buf })) do
+						vim.lsp.buf_detach_client(ctx.buf, client.id)
+					end
+					pcall(vim.treesitter.stop, ctx.buf)
+				end,
+			},
+		}
+	end,
 }

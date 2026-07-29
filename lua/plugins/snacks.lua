@@ -7,42 +7,90 @@ return {
 	-- (gdh/gdH/gdm/gdM/gdb/gdd/gdf in lua/config/keymaps.lua).
 	keys = {
 		{ "<leader>gd", false },
-		{ "<leader>ps", function() Snacks.profiler.scratch() end, desc = "Profiler Scratch Buffer" },
+		{
+			"<leader>ps",
+			function()
+				Snacks.profiler.scratch()
+			end,
+			desc = "Profiler Scratch Buffer",
+		},
 	},
 	opts = function()
 		Snacks.toggle.profiler():map("<leader>pp")
 		Snacks.toggle.profiler_highlights():map("<leader>ph")
+
 		return {
 			profiler = {
 				enabled = true,
-				filter_fn = {
-					default = true,
-					["^gitsigns%."] = false,
-				},
-				filter_mod = {
-					default = true,
-					["^gitsigns%."] = false,
-				},
+				filter_fn = { default = true, ["^gitsigns%."] = false },
+				filter_mod = { default = true, ["^gitsigns%."] = false },
 			},
-			win = {
-				backdrop = false,
-			},
-			styles = {
-				sidebar = {
-					backdrop = false,
-				},
-			},
-			image = {
-				enabled = true,
-				inline = false,
-			},
+			win = { backdrop = false },
+			styles = { sidebar = { backdrop = false } },
 			input = { enabled = true },
-			picker = { enabled = true },
+			-- Keep previews, but remove work that scales with preview size and result count.
+			picker = {
+				enabled = true,
+				limit = 5000,
+				limit_live = 5000,
+				matcher = {
+					filename_bonus = false,
+					file_pos = false,
+				},
+				icons = {
+					files = { enabled = false },
+					git = { enabled = false },
+				},
+				formatters = {
+					file = { git_status_hl = false },
+				},
+				previewers = {
+					file = {
+						max_size = 256 * 1024,
+						max_line_length = 240,
+					},
+				},
+				win = {
+					preview = {
+						wo = {
+							breakindent = false,
+							cursorline = false,
+							foldenable = false,
+							foldexpr = "0",
+							foldmethod = "manual",
+							list = false,
+							number = false,
+							relativenumber = false,
+							signcolumn = "no",
+							spell = false,
+							wrap = false,
+						},
+					},
+				},
+				sources = {
+					buffers = { unloaded = false },
+					files = { limit = 5000, limit_live = 5000 },
+					grep = { limit = 5000, limit_live = 5000 },
+					grep_word = { limit = 5000, limit_live = 5000 },
+					explorer = {
+						diagnostics = false,
+						follow_file = false,
+						git_status = false,
+						git_untracked = false,
+						watch = false,
+					},
+				},
+			},
+			-- External image.nvim still handles editor Markdown. Skip Snacks image probing in pickers.
+			image = { enabled = false },
 			explorer = { enabled = true },
 			terminal = {
 				enabled = true,
 				win = {
 					wo = {
+						-- Prevent treesitter foldexpr from running on terminal buffers.
+						-- With foldmethod=expr globally, nvim evaluates folds on every line
+						-- of terminal output, which is slow and serves no purpose in a terminal.
 						foldmethod = "manual",
 						foldexpr = "0",
 					},

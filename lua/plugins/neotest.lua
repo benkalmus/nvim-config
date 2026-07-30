@@ -77,7 +77,7 @@ return {
 			function()
 				select_preset(function(args)
 					local test_args = vim.deepcopy(args)
-					table.insert(test_args, 1, "-args")
+					table.insert(test_args, 1, "-v -race -timeout=10s -args")
 					require("neotest").run.run({ extra_args = { go_test_args = test_args } })
 				end)
 			end,

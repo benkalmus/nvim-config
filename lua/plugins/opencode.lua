@@ -75,6 +75,17 @@ return {
 
 		vim.o.autoread = true -- Required for `opts.events.reload`
 
+		-- Translator proxy: rewrite prompts through a cheap LLM before they reach opencode.
+		require("opencode.translator").setup({
+			enabled = true, -- toggle live with <leader>at
+			mode = "confirm", -- review/edit each translation while tuning the system prompt
+			provider = {
+				model = "meta-llama/llama-3.1-8b-instruct",
+				api_key = vim.env.OPENROUTER_API_KEY,
+			},
+		})
+		require("opencode.translator.patch").apply()
+
 		-- Recommended/example keymaps
 		vim.keymap.set({ "n", "x" }, "<leader>aa", function()
 			require("opencode").ask("@this: ", { submit = true })
@@ -99,5 +110,8 @@ return {
 		vim.keymap.set("n", "<S-C-d>", function()
 			require("opencode").command("session.half.page.down")
 		end, { desc = "Scroll opencode down" })
+		vim.keymap.set("n", "<leader>at", function()
+			require("opencode.translator").toggle()
+		end, { desc = "Toggle opencode translator" })
 	end,
 }

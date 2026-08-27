@@ -10,10 +10,30 @@ vim.api.nvim_create_autocmd("UIEnter", {
 	end,
 })
 
--- checktime on FocusGained only. BufEnter causes a disk check on every buffer
--- switch which adds I/O on large repos with many open buffers.
-vim.api.nvim_create_autocmd("FocusGained", {
-	command = "checktime",
+vim.api.nvim_create_autocmd({ "FocusGained", "CursorHold", "CursorHoldI", "TermLeave", "TermClose" }, {
+	callback = function()
+		if vim.bo.buftype == "" and vim.fn.mode() ~= "c" then
+			pcall(vim.cmd.checktime)
+		end
+	end,
+})
+
+vim.api.nvim_create_autocmd("FileChangedShell", {
+	callback = function(args)
+		if vim.v.fcs_reason == "deleted" then
+			vim.v.fcs_choice = ""
+			return
+		end
+		if vim.bo[args.buf].modified then
+			vim.schedule(function()
+				vim.notify(
+					"Reloaded " .. vim.fn.fnamemodify(args.file, ":t") .. " from disk; unsaved buffer edits were replaced",
+					vim.log.levels.WARN
+				)
+			end)
+		end
+		vim.v.fcs_choice = "reload"
+	end,
 })
 
 -- vim.api.nvim_create_autocmd("WinLeave", {

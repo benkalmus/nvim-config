@@ -3,6 +3,7 @@ return {
 	dependencies = {
 		"folke/snacks.nvim",
 	},
+	enabled = false,
 	keys = {
 		-- Main Claude Code commands
 		{

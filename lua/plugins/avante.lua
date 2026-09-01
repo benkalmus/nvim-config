@@ -64,7 +64,7 @@ return {
 		},
 		keys = {
 			{ "<C-'>", "<cmd>AvanteToggle<cr>", desc = "Avante Toggle sidebar", mode = { "n", "v", "i" } },
-			{ "<leader>at", "<cmd>AvanteToggle<cr>", desc = "Avante Toggle sidebar", mode = { "n", "v", "i" } },
+			{ "<leader>at", "<cmd>AvanteToggle<cr>", desc = "Avante Toggle sidebar", mode = { "n", "v" } },
 			{ "<leader>ae", "<cmd>AvanteEdit<cr>", desc = "Avante Edit selection", mode = { "n", "v" } },
 			{ "<leader>aa", "<cmd>AvanteAsk<cr>", desc = "Avante Ask (floating)", mode = { "n", "v" } },
 			{ "<leader>as", "<cmd>AvanteStop<cr>", desc = "Avante Stop" },

@@ -99,6 +99,7 @@ return {
 		_99.setup({
 
 			provider = _99.Providers.OpenCodeProvider,
+			model = "openrouter/deepseek/deepseek-v4-flash",
 			completion = { source = "blink" },
 			md_files = {
 				"AGENTS.md",

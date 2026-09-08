@@ -176,7 +176,7 @@ return {
 							"--output.junit-xml.path=",
 							"--output.teamcity.path=",
 							"--output.sarif.path=",
-							"--fast-only",
+							-- "--fast-only",
 							"--allow-parallel-runners",
 							"--show-stats=false",
 							"--output.json.path=stdout",
@@ -346,36 +346,6 @@ return {
 					map("n", "[d", vim.diagnostic.goto_prev, "Previous Diagnostic")
 				end,
 			})
-
-			vim.lsp.handlers["textDocument/hover"] = function(err, result, ctx, config)
-				if err or not result or not result.contents then
-					return
-				end
-
-				config = config or {}
-				config.border = "rounded"
-				config.focusable = true
-				config.stylize_markdown = false
-
-				local bufnr, winnr = vim.lsp.util.open_floating_preview(
-					vim.lsp.util.convert_input_to_markdown_lines(result.contents, {}),
-					"markdown",
-					config
-				)
-
-				if bufnr and winnr then
-					vim.bo[bufnr].filetype = ""
-					vim.bo[bufnr].syntax = "off"
-					vim.wo[winnr].conceallevel = 0
-					vim.wo[winnr].concealcursor = ""
-					vim.wo[winnr].wrap = true
-					vim.api.nvim_buf_call(bufnr, function()
-						pcall(vim.treesitter.stop, bufnr)
-					end)
-				end
-
-				return bufnr, winnr
-			end
 		end,
 	},
 }

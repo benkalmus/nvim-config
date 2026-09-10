@@ -176,7 +176,7 @@ return {
 							"--output.junit-xml.path=",
 							"--output.teamcity.path=",
 							"--output.sarif.path=",
-							-- "--fast-only",
+							"--fast-only",
 							"--allow-parallel-runners",
 							"--show-stats=false",
 							"--output.json.path=stdout",

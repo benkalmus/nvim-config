@@ -11,7 +11,6 @@ local snacks_terminal_opts = {
 return {
 	"nickjvandyke/opencode.nvim",
 	event = "VeryLazy",
-	version = "*", -- Latest stable release
 	dependencies = {
 		{
 			-- `snacks.nvim` integration is recommended, but optional

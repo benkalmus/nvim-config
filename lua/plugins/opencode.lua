@@ -74,10 +74,10 @@ return {
 		end, { desc = "Toggle opencode" })
 
 		vim.keymap.set({ "n", "x" }, "<leader>ar", function()
-			return require("opencode").operator("@this...")
+			return require("opencode.tui_append").operator("@this ", opencode_cmd)
 		end, { desc = "Add range to opencode", expr = true })
 		vim.keymap.set("n", "<leader>al", function()
-			return require("opencode").operator("@this...") .. "_"
+			return require("opencode.tui_append").operator("@this ", opencode_cmd) .. "_"
 		end, { desc = "Add line to opencode", expr = true })
 
 		vim.keymap.set("n", "<S-C-u>", function()

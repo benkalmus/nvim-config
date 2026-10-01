@@ -228,20 +228,7 @@ return {
 						},
 					},
 				},
-				clangd = {
-					cmd = {
-						vim.fn.stdpath("data") .. "/mason/bin/clangd",
-						"--background-index",
-						"--clang-tidy",
-						"--completion-style=detailed",
-						"--header-insertion=never",
-						"--compile-commands-dir=build/Debug",
-					},
-					init_options = {
-						clangdFileStatus = true,
-					},
-				},
-			})
+		})
 		end,
 		init = function()
 			vim.api.nvim_create_user_command("GoplsRefreshTags", function()

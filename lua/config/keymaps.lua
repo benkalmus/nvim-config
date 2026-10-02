@@ -11,9 +11,7 @@ map({ "n", "v" }, "<C-s>", "<cmd>w<cr>", { desc = "Save File" })
 map("i", "<C-s>", "<Esc>:w<cr>", { desc = "Save File" })
 
 -- Snacks-first UI replacements for old NvChad bindings.
-map("n", "<leader>e", function()
-	Snacks.explorer()
-end, { desc = "Explorer" })
+-- <leader>e comes from the neo-tree extra (root dir reveal).
 
 map({ "n", "t" }, "<C-/>", function()
 	Snacks.terminal.toggle(nil, { win = { position = "bottom" } })

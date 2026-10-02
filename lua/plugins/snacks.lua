@@ -83,7 +83,7 @@ return {
 			},
 			-- External image.nvim still handles editor Markdown. Skip Snacks image probing in pickers.
 			image = { enabled = false },
-			explorer = { enabled = true },
+			explorer = { enabled = false },
 			terminal = {
 				enabled = true,
 				win = {

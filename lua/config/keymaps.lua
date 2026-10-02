@@ -175,7 +175,15 @@ end, { desc = "Set Log Point" })
 
 -- Tabs and buffers.
 map({ "n", "v" }, "<leader>wn", "<cmd>tabnew<cr>", { desc = "Create New Tab" })
-map({ "n", "v" }, "<leader>wc", "<cmd>tabclose<cr>", { desc = "Close Current Tab" })
+local function smart_tabclose()
+	local ok, lib = pcall(require, "diffview.lib")
+	if ok and lib.get_current_view() then
+		vim.cmd("DiffviewClose")
+		return
+	end
+	vim.cmd("tabclose")
+end
+map({ "n", "v" }, "<leader>wc", smart_tabclose, { desc = "Close Current Tab" })
 map("n", "<leader>bn", "<cmd>enew<cr>", { desc = "New Buffer" })
 map("n", "<leader>bd", function()
 	Snacks.bufdelete()

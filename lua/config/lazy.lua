@@ -20,7 +20,7 @@ require("lazy").setup({
 		{ import = "lazyvim.plugins.extras.coding.blink" },
 		{ import = "lazyvim.plugins.extras.coding.luasnip" },
 		{ import = "lazyvim.plugins.extras.editor.snacks_picker" },
-		{ import = "lazyvim.plugins.extras.editor.snacks_explorer" },
+		{ import = "lazyvim.plugins.extras.ui.treesitter-context" },
 		{ import = "lazyvim.plugins.extras.dap.core" },
 		{ import = "lazyvim.plugins.extras.test.core" },
 		-- nvim-lint is now the default LazyVim linter; no extra needed

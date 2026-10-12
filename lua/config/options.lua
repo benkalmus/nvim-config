@@ -33,3 +33,18 @@ opt.jumpoptions:append("clean")
 opt.sessionoptions = "buffers,curdir,tabpages,winsize,help,globals,skiprtp,folds"
 
 opt.listchars = { tab = "· " }
+
+-- OSC52 is write-only so pasting on the remote host still uses the local terminal paste.
+if vim.env.SSH_TTY or vim.env.SSH_CONNECTION then
+	vim.g.clipboard = {
+		name = "OSC 52",
+		copy = {
+			["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+			["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+		},
+		paste = {
+			["+"] = require("vim.ui.clipboard.osc52").paste("+"),
+			["*"] = require("vim.ui.clipboard.osc52").paste("*"),
+		},
+	}
+end

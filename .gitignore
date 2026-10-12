@@ -8,3 +8,4 @@ foo.*
 data
 tmp
 .claude/
+/lazy-lock.json

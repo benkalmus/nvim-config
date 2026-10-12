@@ -100,6 +100,7 @@ map({ "n", "v" }, "<leader>gp", "<cmd>Gitsigns preview_hunk_inline<cr>", { desc 
 
 map({ "n", "v" }, "<leader>gn", LazyVim.pick("git_log_line"), { desc = "Git Line Log" })
 map({ "n", "v" }, "<leader>gs", LazyVim.pick("git_status"), { desc = "Git Status" })
+map("n", "<leader>sf", LazyVim.pick("grep", { live = false, need_search = false }), { desc = "Fuzzy Search Content" })
 map({ "n", "v" }, "<leader>gC", LazyVim.pick("git_log_file"), { desc = "Git Buffer Commit Log" })
 
 -- Diffview.

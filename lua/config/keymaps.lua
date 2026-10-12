@@ -247,3 +247,6 @@ map("n", "g$", "<cmd>tablast<cr>", { desc = "Go to Last Tab" })
 
 -- Remove LazyVim defaults that conflict with local habits.
 del("n", "<leader>l")
+
+-- <leader>L opens Lazy instead of the LazyVim changelog.
+map("n", "<leader>L", "<cmd>Lazy<cr>", { desc = "Lazy" })

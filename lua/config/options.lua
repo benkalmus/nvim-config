@@ -34,8 +34,9 @@ opt.sessionoptions = "buffers,curdir,tabpages,winsize,help,globals,skiprtp,folds
 
 opt.listchars = { tab = "· " }
 
--- OSC52 is write-only so pasting on the remote host still uses the local terminal paste.
-if vim.env.SSH_TTY or vim.env.SSH_CONNECTION then
+-- OSC52 copy works over SSH and tmux. Paste is a query the terminal may not answer,
+-- so `p` can hang; paste with the terminal instead.
+if vim.env.SSH_TTY or vim.env.SSH_CONNECTION or vim.env.TMUX then
 	vim.g.clipboard = {
 		name = "OSC 52",
 		copy = {
@@ -47,4 +48,5 @@ if vim.env.SSH_TTY or vim.env.SSH_CONNECTION then
 			["*"] = require("vim.ui.clipboard.osc52").paste("*"),
 		},
 	}
+	opt.clipboard = "unnamedplus"
 end

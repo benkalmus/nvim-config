@@ -73,6 +73,9 @@ return {
 		vim.keymap.set({ "n", "t", "v" }, "<C-,>", function()
 			require("snacks.terminal").toggle(opencode_cmd, snacks_terminal_opts)
 		end, { desc = "Toggle opencode" })
+		vim.keymap.set({ "n", "v" }, "<leader>aa", function()
+			require("snacks.terminal").toggle(opencode_cmd, snacks_terminal_opts)
+		end, { desc = "Toggle opencode" })
 
 		vim.keymap.set({ "n", "x" }, "<leader>ar", function()
 			return require("opencode.tui_append").operator("@this ", opencode_cmd)

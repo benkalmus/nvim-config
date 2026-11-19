@@ -5,7 +5,7 @@ local snacks_terminal_opts = {
 	win = {
 		position = "right",
 		enter = false,
-		width = 0.5,
+		width = 0.43,
 	},
 }
 

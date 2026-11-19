@@ -26,6 +26,21 @@ local function reset(tab, st)
 	state[tab] = nil
 end
 
+-- Follow output only while the panel is at the bottom, even when another window is current.
+local function follow(st)
+	if not valid_buf(st.buf) then
+		return
+	end
+	local count = vim.api.nvim_buf_line_count(st.buf)
+	if valid_win(st.win) and vim.api.nvim_get_current_win() ~= st.win then
+		local info = vim.fn.getwininfo(st.win)[1]
+		if info and info.botline >= (st.last_count or count) - 1 then
+			vim.api.nvim_win_set_cursor(st.win, { count, 0 })
+		end
+	end
+	st.last_count = count
+end
+
 function M.open()
 	local tab = vim.api.nvim_get_current_tabpage()
 	local st = state[tab]
@@ -53,6 +68,19 @@ function M.open()
 		st.buf = vim.api.nvim_create_buf(false, false)
 		vim.bo[st.buf].bufhidden = "hide"
 		vim.bo[st.buf].swapfile = false
+		st.last_count = 1
+		vim.api.nvim_buf_attach(st.buf, false, {
+			on_lines = function()
+				if st.follow_pending then
+					return
+				end
+				st.follow_pending = true
+				vim.schedule(function()
+					st.follow_pending = false
+					follow(st)
+				end)
+			end,
+		})
 	end
 
 	st.win = vim.api.nvim_open_win(st.buf, true, {
@@ -60,6 +88,8 @@ function M.open()
 		win = -1,
 		width = width(),
 	})
+	st.last_count = vim.api.nvim_buf_line_count(st.buf)
+	vim.api.nvim_win_set_cursor(st.win, { st.last_count, 0 })
 
 	if not st.job or st.job <= 0 then
 		local job = vim.fn.jobstart({ "omp" }, {

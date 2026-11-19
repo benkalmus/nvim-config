@@ -34,7 +34,7 @@ local function follow(st)
 	local count = vim.api.nvim_buf_line_count(st.buf)
 	if valid_win(st.win) and vim.api.nvim_get_current_win() ~= st.win then
 		local info = vim.fn.getwininfo(st.win)[1]
-		if info and info.botline >= (st.last_count or count) - 1 then
+		if info and info.botline >= st.last_count - 1 then
 			vim.api.nvim_win_set_cursor(st.win, { count, 0 })
 		end
 	end
